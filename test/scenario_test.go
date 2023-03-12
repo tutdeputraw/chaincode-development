@@ -2,7 +2,6 @@ package test
 
 import (
 	"encoding/json"
-	"fmt"
 	"testing"
 
 	"github.com/hyperledger/fabric-chaincode-go/shimtest"
@@ -82,6 +81,7 @@ func Test_registerNewRealEstate(t *testing.T) {
 			[]byte(v.State),
 			[]byte(v.ZipCode),
 			[]byte(v.HouseSize),
+			[]byte(v.IsOpenToSell),
 		})
 	}
 
@@ -173,6 +173,7 @@ func Test_BuyRealEstate(t *testing.T) {
 			[]byte(v.State),
 			[]byte(v.ZipCode),
 			[]byte(v.HouseSize),
+			[]byte(v.IsOpenToSell),
 		})
 	}
 
@@ -192,7 +193,7 @@ func Test_BuyRealEstate(t *testing.T) {
 
 	for i, v := range expect {
 		if v != queryResultInModel[i] {
-			t.FailNow()
+			t.Error("= expect & queryResultInModel dont have the same value")
 		}
 	}
 	//----------[real estate 3 should have one owner history]----------//
@@ -219,6 +220,7 @@ func Test_BuyRealEstate(t *testing.T) {
 			State:        "indo",
 			ZipCode:      "61271",
 			HouseSize:    "5",
+			IsOpenToSell: "true",
 		},
 	}
 
@@ -251,6 +253,7 @@ func Test_BuyRealEstate(t *testing.T) {
 			State:        "jerman",
 			ZipCode:      "121414",
 			HouseSize:    "53",
+			IsOpenToSell: "false",
 		},
 	}
 
@@ -320,6 +323,7 @@ func Test_BuyRealEstate(t *testing.T) {
 			State:        "indo",
 			ZipCode:      "61271",
 			HouseSize:    "5",
+			IsOpenToSell: "false",
 		},
 		{
 			RealEstateId: "4",
@@ -334,6 +338,7 @@ func Test_BuyRealEstate(t *testing.T) {
 			State:        "jerman",
 			ZipCode:      "121414",
 			HouseSize:    "53",
+			IsOpenToSell: "false",
 		},
 	}
 
@@ -381,6 +386,7 @@ func Test_BuyRealEstate(t *testing.T) {
 			State:        "indo",
 			ZipCode:      "61271",
 			HouseSize:    "5",
+			IsOpenToSell: "false",
 		},
 		{
 			RealEstateId: "4",
@@ -395,6 +401,7 @@ func Test_BuyRealEstate(t *testing.T) {
 			State:        "jerman",
 			ZipCode:      "121414",
 			HouseSize:    "53",
+			IsOpenToSell: "false",
 		},
 	}
 
@@ -404,22 +411,21 @@ func Test_BuyRealEstate(t *testing.T) {
 
 	for i, v := range expectb {
 		if v != queryResultInModelb[i] {
-			t.Error("expectb & queryResultInModelb dont't have exac same value")
+			t.Error("= expectb & queryResultInModelb dont't have exac same value")
 		}
 	}
-
 	//----------[user 3 should have 2 real estates]----------//
 }
 
-func Test_NYOBAK(t *testing.T) {
-	cc := new(cc.RealEstateChaincode)
-	stub := shimtest.NewMockStub("real_estate", cc)
+// func Test_NYOBAK(t *testing.T) {
+// 	cc := new(cc.RealEstateChaincode)
+// 	stub := shimtest.NewMockStub("real_estate", cc)
 
-	queryResult := helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("NYOBAK"),
-	})
-	fmt.Println("IKILO: ", string(queryResult))
-}
+// 	queryResult := helper.Test_CheckInvoke(t, stub, [][]byte{
+// 		[]byte("NYOBAK"),
+// 	})
+// 	fmt.Println("IKILO: ", string(queryResult))
+// }
 
 func Test_OwnerSetRealEstateToSell(t *testing.T) {
 	//

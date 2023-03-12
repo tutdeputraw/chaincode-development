@@ -27,4 +27,5 @@ type RealEstateModel struct {
 	State        string `json:"state"`
 	ZipCode      string `json:"zip_code"`
 	HouseSize    string `json:"house_size"`
+	IsOpenToSell string `json:"is_open_to_sell"`
 }

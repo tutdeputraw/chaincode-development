@@ -59,8 +59,8 @@ func (s *RealEstateChaincode) RealEstate_CheckIfRealEstateHasAlreadyRegistered(A
 }
 
 func (s *RealEstateChaincode) RealEstate_Create(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
-	if len(args) != 12 {
-		return shim.Error("Incorrect number of arguments. Expecting 12")
+	if len(args) != 13 {
+		return shim.Error("Incorrect number of arguments. Expecting 13")
 	}
 
 	var realEstate = models.RealEstateModel{
@@ -76,6 +76,7 @@ func (s *RealEstateChaincode) RealEstate_Create(APIstub shim.ChaincodeStubInterf
 		State:        args[9],
 		ZipCode:      args[10],
 		HouseSize:    args[11],
+		IsOpenToSell: args[12],
 	}
 
 	realEstateAsBytes, _ := json.Marshal(realEstate)
@@ -85,8 +86,8 @@ func (s *RealEstateChaincode) RealEstate_Create(APIstub shim.ChaincodeStubInterf
 }
 
 func (s *RealEstateChaincode) RealEstate_RegisterNewRealEstate(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
-	if len(args) != 12 {
-		return shim.Error("Incorrect number of arguments. Expecting 12")
+	if len(args) != 13 {
+		return shim.Error("Incorrect number of arguments. Expecting 13")
 	}
 
 	var realEstate = models.RealEstateModel{
@@ -345,6 +346,12 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateOwner(APIstub shim.Chai
 	realEstate := models.RealEstateModel{}
 	json.Unmarshal(realEstateAsBytes, &realEstate)
 
+	print("realEstate.IsOpenToSell: ", realEstate.IsOpenToSell, "\t", realEstate.RealEstateId)
+
+	if realEstate.IsOpenToSell == "false" {
+		return shim.Error("= Real estate is not open to sell")
+	}
+
 	//==========[delete old key]==========//
 	compositeKey := constant.Composite_GetRealEstatesByOwnerKey
 	ownerId := constant.State_User + realEstate.OwnerId
@@ -366,6 +373,7 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateOwner(APIstub shim.Chai
 
 	//==========[update realestate state]==========//
 	realEstate.OwnerId = newOwnerId
+	realEstate.IsOpenToSell = "false"
 
 	realEstateAsBytes, _ = json.Marshal(realEstate)
 

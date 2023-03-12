@@ -16,6 +16,7 @@ var Mock_RealEstates = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 	{
 		RealEstateId: "1",
@@ -30,6 +31,7 @@ var Mock_RealEstates = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 	{
 		RealEstateId: "2",
@@ -44,6 +46,7 @@ var Mock_RealEstates = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 	{
 		RealEstateId: "3",
@@ -58,6 +61,7 @@ var Mock_RealEstates = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "true",
 	},
 	{
 		RealEstateId: "4",
@@ -72,6 +76,7 @@ var Mock_RealEstates = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 }
 
@@ -89,6 +94,7 @@ var Mock_RealEstates_Owner1 = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 	{
 		RealEstateId: "1",
@@ -103,6 +109,7 @@ var Mock_RealEstates_Owner1 = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 	{
 		RealEstateId: "2",
@@ -117,6 +124,7 @@ var Mock_RealEstates_Owner1 = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 }
 
@@ -134,6 +142,7 @@ var Mock_RealEstates_Owner2 = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "true",
 	},
 	{
 		RealEstateId: "4",
@@ -148,5 +157,6 @@ var Mock_RealEstates_Owner2 = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 }

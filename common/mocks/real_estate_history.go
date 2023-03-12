@@ -16,6 +16,7 @@ var Mock_RealEstates_TransactionHistory = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 	{
 		RealEstateId: "1",
@@ -30,6 +31,7 @@ var Mock_RealEstates_TransactionHistory = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 	{
 		RealEstateId: "2",
@@ -44,6 +46,7 @@ var Mock_RealEstates_TransactionHistory = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "false",
 	},
 	{
 		RealEstateId: "3",
@@ -58,6 +61,7 @@ var Mock_RealEstates_TransactionHistory = []models.RealEstateModel{
 		State:        "indo",
 		ZipCode:      "61271",
 		HouseSize:    "5",
+		IsOpenToSell: "true",
 	},
 	{
 		RealEstateId: "4",
@@ -72,6 +76,7 @@ var Mock_RealEstates_TransactionHistory = []models.RealEstateModel{
 		State:        "jerman",
 		ZipCode:      "121414",
 		HouseSize:    "53",
+		IsOpenToSell: "false",
 	},
 }
 
