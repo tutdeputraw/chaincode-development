@@ -23,12 +23,12 @@ func (s *RealEstateChaincode) RealEstate_Init(APIstub shim.ChaincodeStubInterfac
 	realEstatesLen := len(realEstates)
 	for i < realEstatesLen {
 		realEstateAsBytes, _ := json.Marshal(realEstates[i])
-		APIstub.PutState(constant.RealEstateKey+realEstates[i].RealEstateId, realEstateAsBytes)
+		APIstub.PutState(constant.State_RealEstate+realEstates[i].RealEstateId, realEstateAsBytes)
 
 		// write the user to the real estate ownership history
-		compositeKey := constant.GetRealEstatesByOwnerKey
-		ownerId := constant.UserKey + realEstates[i].OwnerId
-		realEstateId := constant.RealEstateKey + realEstates[i].RealEstateId
+		compositeKey := constant.Composite_GetRealEstatesByOwnerKey
+		ownerId := constant.State_User + realEstates[i].OwnerId
+		realEstateId := constant.State_RealEstate + realEstates[i].RealEstateId
 		ownerRealEstateIdIndexKey, err := APIstub.CreateCompositeKey(
 			compositeKey,
 			[]string{ownerId, realEstateId},
@@ -50,7 +50,7 @@ func (s *RealEstateChaincode) RealEstate_CheckIfRealEstateHasAlreadyRegistered(A
 		return shim.Error("Incorrect number of arguments. Expecting 1")
 	}
 
-	bytes, _ := APIstub.GetState(constant.RealEstateKey + args[0])
+	bytes, _ := APIstub.GetState(constant.State_RealEstate + args[0])
 	if bytes != nil {
 		return shim.Success([]byte(strconv.FormatBool(true)))
 	}
@@ -79,7 +79,7 @@ func (s *RealEstateChaincode) RealEstate_Create(APIstub shim.ChaincodeStubInterf
 	}
 
 	realEstateAsBytes, _ := json.Marshal(realEstate)
-	APIstub.PutState(constant.RealEstateKey+args[0], realEstateAsBytes)
+	APIstub.PutState(constant.State_RealEstate+args[0], realEstateAsBytes)
 
 	return shim.Success(realEstateAsBytes)
 }
@@ -158,8 +158,8 @@ func (s *RealEstateChaincode) RealEstate_QueryById(APIstub shim.ChaincodeStubInt
 }
 
 func (s *RealEstateChaincode) RealEstate_QueryAll(APIstub shim.ChaincodeStubInterface) sc.Response {
-	startKey := constant.RealEstateKey + "0"
-	endKey := constant.RealEstateKey + "999"
+	startKey := constant.State_RealEstate + "0"
+	endKey := constant.State_RealEstate + "999"
 
 	resultsIterator, err := APIstub.GetStateByRange(startKey, endKey)
 	if err != nil {
@@ -220,6 +220,16 @@ func (s *RealEstateChaincode) RealEstate_QueryAll(APIstub shim.ChaincodeStubInte
 	// return shim.Success(buffer.Bytes())
 }
 
+func (s *RealEstateChaincode) NYOBAK(APIstub shim.ChaincodeStubInterface) sc.Response {
+	// result, _ := APIstub.GetCreator()
+	result, _ := APIstub.GetSignedProposal()
+	println("KIKI: ", string(result.ProposalBytes))
+	println("KIKI: ", string(result.Signature))
+
+	APIstub.GetSignedProposal()
+	return shim.Success(result.ProposalBytes)
+}
+
 func (s *RealEstateChaincode) RealEstate_QueryByOwner(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments")
@@ -227,8 +237,8 @@ func (s *RealEstateChaincode) RealEstate_QueryByOwner(APIstub shim.ChaincodeStub
 	owner := args[0]
 
 	ownerAndIdResultIterator, err := APIstub.GetStateByPartialCompositeKey(
-		constant.GetRealEstatesByOwnerKey,
-		[]string{constant.UserKey + owner},
+		constant.Composite_GetRealEstatesByOwnerKey,
+		[]string{constant.State_User + owner},
 	)
 	if err != nil {
 		return shim.Error(err.Error())
@@ -283,9 +293,9 @@ func (s *RealEstateChaincode) RealEstate_QueryByOwner(APIstub shim.ChaincodeStub
 }
 
 func (s *RealEstateChaincode) RealEstate_CreateCompositeRealEstatesByOwner(APIstub shim.ChaincodeStubInterface, realEstate models.RealEstateModel) sc.Response {
-	compositeKey := constant.GetRealEstatesByOwnerKey
-	ownerId := constant.UserKey + realEstate.OwnerId
-	realEstateId := constant.RealEstateKey + realEstate.RealEstateId
+	compositeKey := constant.Composite_GetRealEstatesByOwnerKey
+	ownerId := constant.State_User + realEstate.OwnerId
+	realEstateId := constant.State_RealEstate + realEstate.RealEstateId
 
 	ownerRealEstateIdIndexKey, err := APIstub.CreateCompositeKey(
 		compositeKey,
@@ -303,10 +313,10 @@ func (s *RealEstateChaincode) RealEstate_CreateCompositeRealEstatesByOwner(APIst
 }
 
 func (s *RealEstateChaincode) RealEstate_CreateCompositeOwnersByRealEstate(APIstub shim.ChaincodeStubInterface, realEstate models.RealEstateModel) sc.Response {
-	compositeKey := constant.GetOwnersByRealEstateKey
-	ownerId := constant.UserKey + realEstate.OwnerId
-	realEstateId := constant.RealEstateKey + realEstate.RealEstateId
-	realEstateHistoryKey := constant.RealEstateHistoryKey + realEstate.RealEstateId + realEstate.OwnerId
+	compositeKey := constant.Composite_GetOwnersByRealEstateKey
+	ownerId := constant.State_User + realEstate.OwnerId
+	realEstateId := constant.State_RealEstate + realEstate.RealEstateId
+	realEstateHistoryKey := constant.State_RealEstateHistory + realEstate.RealEstateId + realEstate.OwnerId
 
 	ownerRealEstateIdIndexKey, err := APIstub.CreateCompositeKey(
 		compositeKey,
@@ -328,7 +338,7 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateOwner(APIstub shim.Chai
 		return shim.Error("Incorrect number of arguments. Expecting 2")
 	}
 
-	realEstateKey := constant.RealEstateKey + args[0]
+	realEstateKey := constant.State_RealEstate + args[0]
 	newOwnerId := args[1]
 
 	realEstateAsBytes, _ := APIstub.GetState(realEstateKey)
@@ -336,9 +346,9 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateOwner(APIstub shim.Chai
 	json.Unmarshal(realEstateAsBytes, &realEstate)
 
 	//==========[delete old key]==========//
-	compositeKey := constant.GetRealEstatesByOwnerKey
-	ownerId := constant.UserKey + realEstate.OwnerId
-	realEstateId := constant.RealEstateKey + realEstate.RealEstateId
+	compositeKey := constant.Composite_GetRealEstatesByOwnerKey
+	ownerId := constant.State_User + realEstate.OwnerId
+	realEstateId := constant.State_RealEstate + realEstate.RealEstateId
 
 	ownerCaridIndexKey, err := APIstub.CreateCompositeKey(
 		compositeKey,

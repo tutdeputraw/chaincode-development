@@ -20,7 +20,7 @@ func (s *RealEstateChaincode) User_Init(APIstub shim.ChaincodeStubInterface) sc.
 	usersLen := len(users)
 	for i < usersLen {
 		realEstateAsBytes, _ := json.Marshal(users[i])
-		APIstub.PutState(constant.UserKey+users[i].Id, realEstateAsBytes)
+		APIstub.PutState(constant.State_User+users[i].Id, realEstateAsBytes)
 		i = i + 1
 	}
 
@@ -32,9 +32,9 @@ func (s *RealEstateChaincode) User_CheckIfUserExist(APIstub shim.ChaincodeStubIn
 		return shim.Error("Incorrect number of arguments. Expecting 1")
 	}
 
-	fmt.Println("IDID: ", constant.UserKey+args[0])
+	fmt.Println("IDID: ", constant.State_User+args[0])
 
-	bytes, _ := APIstub.GetState(constant.UserKey + args[0])
+	bytes, _ := APIstub.GetState(constant.State_User + args[0])
 	if bytes != nil {
 		return shim.Success([]byte(strconv.FormatBool(true)))
 	}
@@ -68,7 +68,7 @@ func (s *RealEstateChaincode) User_Create(APIstub shim.ChaincodeStubInterface, a
 	}
 
 	userAsBytes, _ := json.Marshal(user)
-	APIstub.PutState(constant.UserKey+args[0], userAsBytes)
+	APIstub.PutState(constant.State_User+args[0], userAsBytes)
 
 	return shim.Success(userAsBytes)
 }
@@ -77,14 +77,14 @@ func (s *RealEstateChaincode) User_QueryById(APIstub shim.ChaincodeStubInterface
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")
 	}
-	realEstateAsBytes, _ := APIstub.GetState(constant.UserKey + args[0])
+	realEstateAsBytes, _ := APIstub.GetState(constant.State_User + args[0])
 	// fmt.Printf("- queryRealEstateById:\n%s\n", string(realEstateAsBytes))
 	return shim.Success(realEstateAsBytes)
 }
 
 func (s *RealEstateChaincode) User_QueryAll(APIstub shim.ChaincodeStubInterface) sc.Response {
-	startKey := constant.UserKey + "0"
-	endKey := constant.UserKey + "999"
+	startKey := constant.State_User + "0"
+	endKey := constant.State_User + "999"
 
 	resultsIterator, err := APIstub.GetStateByRange(startKey, endKey)
 	if err != nil {

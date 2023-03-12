@@ -1,6 +1,6 @@
 package constant
 
 const (
-	GetRealEstatesByOwnerKey = "realestate~ownerid"
-	GetOwnersByRealEstateKey = "owner~realestateid" // real estate ownership history
+	Composite_GetRealEstatesByOwnerKey = "realestate~ownerid"
+	Composite_GetOwnersByRealEstateKey = "owner~realestateid" // real estate ownership history
 )

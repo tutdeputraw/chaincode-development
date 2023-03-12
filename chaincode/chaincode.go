@@ -49,6 +49,8 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 		return s.User_QueryAll(APIstub)
 	case "User_Create":
 		return s.User_Create(APIstub, args)
+	case "NYOBAK":
+		return s.NYOBAK(APIstub)
 
 	// History
 	case "RealEstateHistory_Create":

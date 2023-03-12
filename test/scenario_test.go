@@ -2,6 +2,7 @@ package test
 
 import (
 	"encoding/json"
+	"fmt"
 	"testing"
 
 	"github.com/hyperledger/fabric-chaincode-go/shimtest"
@@ -408,6 +409,16 @@ func Test_BuyRealEstate(t *testing.T) {
 	}
 
 	//----------[user 3 should have 2 real estates]----------//
+}
+
+func Test_NYOBAK(t *testing.T) {
+	cc := new(cc.RealEstateChaincode)
+	stub := shimtest.NewMockStub("real_estate", cc)
+
+	queryResult := helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("NYOBAK"),
+	})
+	fmt.Println("IKILO: ", string(queryResult))
 }
 
 func Test_OwnerSetRealEstateToSell(t *testing.T) {

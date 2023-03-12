@@ -23,7 +23,7 @@ func (s *RealEstateChaincode) RealEstateHistory_Create(APIstub shim.ChaincodeStu
 	}
 
 	realEstateHistoryAsBytes, _ := json.Marshal(realEstateHistory)
-	realEstateHistoryKey := constant.RealEstateHistoryKey + realEstateHistory.RealEstateId + realEstateHistory.OwnerID
+	realEstateHistoryKey := constant.State_RealEstateHistory + realEstateHistory.RealEstateId + realEstateHistory.OwnerID
 	// realEstateHistoryKey := constant.RealEstateHistoryKey + realEstateHistory.RealEstateId
 	APIstub.PutState(
 		realEstateHistoryKey,
@@ -38,13 +38,13 @@ func (s *RealEstateChaincode) RealEstateHistory_QueryByRealEstateId(APIstub shim
 		return shim.Error("Incorrect number of arguments")
 	}
 
-	realEstateAsBytes, err := APIstub.GetState(constant.RealEstateKey + args[0])
+	realEstateAsBytes, err := APIstub.GetState(constant.State_RealEstate + args[0])
 	realEstate := models.RealEstateModel{}
 	json.Unmarshal(realEstateAsBytes, &realEstate)
-	realEstateId := constant.RealEstateKey + realEstate.RealEstateId
+	realEstateId := constant.State_RealEstate + realEstate.RealEstateId
 
 	ownerAndIdResultIterator, err := APIstub.GetStateByPartialCompositeKey(
-		constant.GetOwnersByRealEstateKey,
+		constant.Composite_GetOwnersByRealEstateKey,
 		[]string{realEstateId},
 	)
 	if err != nil {
