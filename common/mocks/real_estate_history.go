@@ -1,0 +1,87 @@
+package mock
+
+import "tutdeputraw.com/common/models"
+
+var Mock_RealEstates_TransactionHistory = []models.RealEstateModel{
+	{
+		RealEstateId: "0",
+		OwnerId:      "1",
+		Price:        "15000",
+		Bed:          "1",
+		Bath:         "1",
+		AcreLot:      "150",
+		FullAddress:  "nggulunan",
+		Street:       "sumokali",
+		City:         "ndarjo",
+		State:        "indo",
+		ZipCode:      "61271",
+		HouseSize:    "5",
+	},
+	{
+		RealEstateId: "1",
+		OwnerId:      "1",
+		Price:        "13000",
+		Bed:          "1",
+		Bath:         "1",
+		AcreLot:      "150",
+		FullAddress:  "cibinong",
+		Street:       "mbongso",
+		City:         "ndarjo",
+		State:        "indo",
+		ZipCode:      "61271",
+		HouseSize:    "5",
+	},
+	{
+		RealEstateId: "2",
+		OwnerId:      "1",
+		Price:        "11000",
+		Bed:          "1",
+		Bath:         "1",
+		AcreLot:      "150",
+		FullAddress:  "manukan",
+		Street:       "celep",
+		City:         "ndarjo",
+		State:        "indo",
+		ZipCode:      "61271",
+		HouseSize:    "5",
+	},
+	{
+		RealEstateId: "3",
+		OwnerId:      "2",
+		Price:        "13000",
+		Bed:          "1",
+		Bath:         "1",
+		AcreLot:      "150",
+		FullAddress:  "cibinong",
+		Street:       "mbongso",
+		City:         "ndarjo",
+		State:        "indo",
+		ZipCode:      "61271",
+		HouseSize:    "5",
+	},
+	{
+		RealEstateId: "4",
+		OwnerId:      "3",
+		Price:        "16000",
+		Bed:          "12",
+		Bath:         "11",
+		AcreLot:      "1500",
+		FullAddress:  "bangkalan",
+		Street:       "meduro",
+		City:         "madura",
+		State:        "jerman",
+		ZipCode:      "121414",
+		HouseSize:    "53",
+	},
+}
+
+var Mock_RealEstateHistory_RealEstate3 = []models.RealEstateHistoryModel{
+	{
+		OwnerID:      "",
+		RealEstateId: "",
+	},
+	{
+		OwnerID:      "",
+		RealEstateId: "",
+	},
+}
