@@ -37,6 +37,8 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 		return s.RealEstate_QueryByOwner(APIstub, args)
 	case "RealEstate_ChangeRealEstateOwner":
 		return s.RealEstate_ChangeRealEstateOwner(APIstub, args)
+	case "RealEstate_ChangeRealEstateSellStatus":
+		return s.RealEstate_ChangeRealEstateSellStatus(APIstub, args)
 
 	// User
 	case "User_Init":

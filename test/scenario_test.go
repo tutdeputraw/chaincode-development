@@ -417,20 +417,58 @@ func Test_BuyRealEstate(t *testing.T) {
 	//----------[user 3 should have 2 real estates]----------//
 }
 
-// func Test_NYOBAK(t *testing.T) {
-// 	cc := new(cc.RealEstateChaincode)
-// 	stub := shimtest.NewMockStub("real_estate", cc)
-
-// 	queryResult := helper.Test_CheckInvoke(t, stub, [][]byte{
-// 		[]byte("NYOBAK"),
-// 	})
-// 	fmt.Println("IKILO: ", string(queryResult))
-// }
-
 func Test_OwnerSetRealEstateToSell(t *testing.T) {
-	//
+	cc := new(cc.RealEstateChaincode)
+	stub := shimtest.NewMockStub("real_estate", cc)
+
+	//==========[init real estates]==========//
+	//----------[init real estates]----------//
+
+	//==========[init real estates]==========//
+	queryResultAsBytes := helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_Init"),
+	})
+	//----------[init real estates]----------//
+
+	//==========[real estate with id 3 should have the true value of the IsOpenToSell field]==========//
+	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_QueryById"),
+		[]byte("3"), // real estate id
+	})
+	queryResult := models.RealEstateModel{}
+	json.Unmarshal(queryResultAsBytes, &queryResult)
+
+	expect := "true"
+
+	if expect != queryResult.IsOpenToSell {
+		t.Errorf("expect!=queryResult")
+	}
+	//----------[real estate with id 3 should have the true value of the IsOpenToSell field]----------//
+
+	//==========[change the real estate isopentosell value to be true]==========//
+	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_ChangeRealEstateSellStatus"),
+		[]byte("3"),     // real estate id
+		[]byte("false"), // status
+	})
+	//----------[change the real estate isopentosell value to be true]----------//
+
+	//==========[real estate with id 3 should have the true value of the IsOpenToSell field]==========//
+	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_QueryById"),
+		[]byte("3"), // real estate id
+	})
+	queryResult = models.RealEstateModel{}
+	json.Unmarshal(queryResultAsBytes, &queryResult)
+
+	expect = "false"
+
+	if expect != queryResult.IsOpenToSell {
+		t.Errorf("expect!=queryResult")
+	}
+	//----------[real estate with id 3 should have the true value of the IsOpenToSell field]----------//
 }
 
 func Test_ExternalAdvisorAssessTheRealEstate(t *testing.T) {
-	//
+	// soon
 }

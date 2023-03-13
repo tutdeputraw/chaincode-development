@@ -153,7 +153,9 @@ func (s *RealEstateChaincode) RealEstate_QueryById(APIstub shim.ChaincodeStubInt
 		return shim.Error("Incorrect number of arguments. Expecting 1")
 	}
 
-	realEstateAsBytes, _ := APIstub.GetState(args[0])
+	realEstateKey := constant.State_RealEstate + args[0]
+
+	realEstateAsBytes, _ := APIstub.GetState(realEstateKey)
 
 	return shim.Success(realEstateAsBytes)
 }
@@ -404,4 +406,33 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateOwner(APIstub shim.Chai
 	//----------[add new user into the composite of real estate history]----------//
 
 	return shim.Success(nil)
+}
+
+func (s *RealEstateChaincode) RealEstate_ChangeRealEstateSellStatus(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+	if len(args) != 2 {
+		return shim.Error("Incorrect number of arguments. Expecting 2")
+	}
+
+	realEstateId := args[0]
+	status := args[1]
+
+	if status != "true" && status != "false" {
+		return shim.Error("args[1] value is not in range true or false, value type must be string")
+	}
+
+	realEstateAsBytes, err := APIstub.GetState(constant.State_RealEstate + realEstateId)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+
+	realEstate := models.RealEstateModel{}
+	json.Unmarshal(realEstateAsBytes, &realEstate)
+
+	realEstate.IsOpenToSell = status
+
+	realEstateAsBytes, _ = json.Marshal(realEstate)
+
+	APIstub.PutState(constant.State_RealEstate+realEstateId, realEstateAsBytes)
+
+	return shim.Success(realEstateAsBytes)
 }

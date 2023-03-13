@@ -15,6 +15,12 @@ import (
 
 func (s *RealEstateChaincode) User_Init(APIstub shim.ChaincodeStubInterface) sc.Response {
 	users := mock.Mock_Users
+	// id, err := cid.GetID(APIstub)
+	// if err != nil {
+	// 	fmt.Println("failed to get cid, err= ", err)
+	// 	return shim.Error("")
+	// }
+	// fmt.Println("ikiloo: ", id)
 
 	i := 0
 	usersLen := len(users)
