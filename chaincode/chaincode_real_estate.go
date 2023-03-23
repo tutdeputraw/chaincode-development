@@ -1,6 +1,7 @@
 package chaincode
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"strconv"
@@ -170,57 +171,12 @@ func (s *RealEstateChaincode) RealEstate_QueryAll(APIstub shim.ChaincodeStubInte
 	}
 	defer resultsIterator.Close()
 
-	results := []byte{}
-
-	for resultsIterator.HasNext() {
-		queryResponse, err := resultsIterator.Next()
-		if err != nil {
-			return shim.Error(err.Error())
-		}
-
-		results = append(results, queryResponse.Value...)
+	results, err := constructQueryResponseFromIteratorAAA(resultsIterator)
+	if err != nil {
+		return shim.Error(err.Error())
 	}
 
-	// fmt.Printf("- queryAllRealEstatese:\n%s\n", string(results))
-
 	return shim.Success(results)
-
-	// resultsIterator, err := APIstub.GetStateByRange(startKey, endKey)
-	// if err != nil {
-	// 	return shim.Error(err.Error())
-	// }
-	// defer resultsIterator.Close()
-
-	// // buffer is a JSON array containing QueryResults
-	// var buffer bytes.Buffer
-	// buffer.WriteString("[")
-
-	// bArrayMemberAlreadyWritten := false
-	// for resultsIterator.HasNext() {
-	// 	queryResponse, err := resultsIterator.Next()
-	// 	if err != nil {
-	// 		return shim.Error(err.Error())
-	// 	}
-	// 	// Add a comma before array members, suppress it for the first array member
-	// 	if bArrayMemberAlreadyWritten == true {
-	// 		buffer.WriteString(",")
-	// 	}
-	// 	buffer.WriteString("{\"Key\":")
-	// 	buffer.WriteString("\"")
-	// 	buffer.WriteString(queryResponse.Key)
-	// 	buffer.WriteString("\"")
-
-	// 	buffer.WriteString(", \"Record\":")
-	// 	// Record is a JSON object, so we write as-is
-	// 	buffer.WriteString(string(queryResponse.Value))
-	// 	buffer.WriteString("}")
-	// 	bArrayMemberAlreadyWritten = true
-	// }
-	// buffer.WriteString("]")
-
-	// fmt.Printf("- queryAllRealEstates:\n%s\n", buffer.String())
-
-	// return shim.Success(buffer.Bytes())
 }
 
 func (s *RealEstateChaincode) NYOBAK(APIstub shim.ChaincodeStubInterface) sc.Response {
@@ -435,4 +391,86 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateSellStatus(APIstub shim
 	APIstub.PutState(constant.State_RealEstate+realEstateId, realEstateAsBytes)
 
 	return shim.Success(realEstateAsBytes)
+}
+
+///////////////
+
+func (s *RealEstateChaincode) QueryAssets(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+	if len(args) < 1 {
+		return shim.Error("Incorrect number of arguments. Expecting 1")
+	}
+
+	queryString := args[0]
+
+	queryResults, err := getQueryResultForQueryString(APIstub, queryString)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	return shim.Success(queryResults)
+}
+
+func getQueryResultForQueryString(stub shim.ChaincodeStubInterface, queryString string) ([]byte, error) {
+
+	fmt.Printf("- getQueryResultForQueryString queryString:\n%s\n", queryString)
+
+	resultsIterator, err := stub.GetQueryResult(queryString)
+	if err != nil {
+		return nil, err
+	}
+	defer resultsIterator.Close()
+
+	buffer, err := constructQueryResponseFromIterator(resultsIterator)
+	if err != nil {
+		return nil, err
+	}
+
+	fmt.Printf("- getQueryResultForQueryString queryResult:\n%s\n", string(buffer.Bytes()))
+
+	return buffer.Bytes(), nil
+}
+
+func constructQueryResponseFromIterator(resultsIterator shim.StateQueryIteratorInterface) (*bytes.Buffer, error) {
+	// buffer is a JSON array containing QueryResults
+	var buffer bytes.Buffer
+	buffer.WriteString("[")
+
+	bArrayMemberAlreadyWritten := false
+	for resultsIterator.HasNext() {
+		queryResponse, err := resultsIterator.Next()
+		if err != nil {
+			return nil, err
+		}
+		// Add a comma before array members, suppress it for the first array member
+		if bArrayMemberAlreadyWritten == true {
+			buffer.WriteString(",")
+		}
+		buffer.WriteString("{\"Key\":")
+		buffer.WriteString("\"")
+		buffer.WriteString(queryResponse.Key)
+		buffer.WriteString("\"")
+
+		buffer.WriteString(", \"Record\":")
+		// Record is a JSON object, so we write as-is
+		buffer.WriteString(string(queryResponse.Value))
+		buffer.WriteString("}")
+		bArrayMemberAlreadyWritten = true
+	}
+	buffer.WriteString("]")
+
+	return &buffer, nil
+}
+
+func constructQueryResponseFromIteratorAAA(resultsIterator shim.StateQueryIteratorInterface) ([]byte, error) {
+	results := []byte{}
+
+	for resultsIterator.HasNext() {
+		queryResponse, err := resultsIterator.Next()
+		if err != nil {
+			return nil, err
+		}
+
+		results = append(results, queryResponse.Value...)
+	}
+
+	return results, nil
 }

@@ -469,6 +469,26 @@ func Test_OwnerSetRealEstateToSell(t *testing.T) {
 	//----------[real estate with id 3 should have the true value of the IsOpenToSell field]----------//
 }
 
+func Test_ShouldBeAbleToQueryRealEstateByCity(t *testing.T) {
+	// cc := new(cc.RealEstateChaincode)
+	// stub := shimtest.NewMockStub("real_estate", cc)
+
+	// //==========[init real estates]==========//
+	// helper.Test_CheckInvoke(t, stub, [][]byte{
+	// 	[]byte("RealEstate_Init"),
+	// })
+	// //----------[init real estates]----------//
+
+	// //==========[query real estate by city]==========//
+	// queryResultAsBytes := helper.Test_CheckInvoke(t, stub, [][]byte{
+	// 	[]byte("QueryAssets"),
+	// 	[]byte("{\"selector\":{\"City\":\"ndarjo\"}}"),
+	// })
+	// fmt.Println("OPOSE HASILE: ")
+	// fmt.Println(string(queryResultAsBytes))
+	// //----------[query real estate by city]----------//
+}
+
 func Test_ExternalAdvisorAssessTheRealEstate(t *testing.T) {
 	// soon
 }
