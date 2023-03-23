@@ -33,7 +33,7 @@ func (s *RealEstateChaincode) RealEstateHistory_Create(APIstub shim.ChaincodeStu
 	return shim.Success(realEstateHistoryAsBytes)
 }
 
-func (s *RealEstateChaincode) RealEstateHistory_QueryByRealEstateId(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+func (s *RealEstateChaincode) RealEstateHistory_GetByRealEstateId(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments")
 	}

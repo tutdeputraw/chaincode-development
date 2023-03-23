@@ -42,7 +42,7 @@ func Test_registerNewUser(t *testing.T) {
 	}
 
 	getUserById := helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("User_QueryById"),
+		[]byte("User_GetById"),
 		[]byte(expect.Id),
 	})
 	getUserByIdInModel := models.UserModel{}
@@ -86,7 +86,7 @@ func Test_registerNewRealEstate(t *testing.T) {
 	}
 
 	result := helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryByOwner"),
+		[]byte("RealEstate_GetByOwner"),
 		[]byte("1"),
 	})
 	resultInModel := []models.RealEstateModel{}
@@ -116,7 +116,7 @@ func Test_queryRealEstateByOwner(t *testing.T) {
 	})
 
 	queryResult := helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryByOwner"),
+		[]byte("RealEstate_GetByOwner"),
 		[]byte("1"),
 	})
 	queryResultInModel := []models.RealEstateModel{}
@@ -143,7 +143,7 @@ func Test_BuyRealEstate(t *testing.T) {
 	})
 
 	queryResult := helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("User_QueryById"),
+		[]byte("User_GetById"),
 		[]byte("3"),
 	})
 	queryResultInModelA := models.UserModel{}
@@ -185,7 +185,7 @@ func Test_BuyRealEstate(t *testing.T) {
 	}
 
 	queryResult = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstateHistory_QueryByRealEstateId"),
+		[]byte("RealEstateHistory_GetByRealEstateId"),
 		[]byte("3"),
 	})
 	queryResultInModel := []models.RealEstateHistoryModel{}
@@ -200,7 +200,7 @@ func Test_BuyRealEstate(t *testing.T) {
 
 	//==========[user 2 should have a real estate]==========//
 	queryResult = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryByOwner"),
+		[]byte("RealEstate_GetByOwner"),
 		[]byte("2"), // owner id
 	})
 	queryResultInModelb := []models.RealEstateModel{}
@@ -233,7 +233,7 @@ func Test_BuyRealEstate(t *testing.T) {
 
 	//==========[user 3 should have a real estate]==========//
 	queryResult = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryByOwner"),
+		[]byte("RealEstate_GetByOwner"),
 		[]byte("3"), // owner id
 	})
 	queryResultInModelb = []models.RealEstateModel{}
@@ -284,7 +284,7 @@ func Test_BuyRealEstate(t *testing.T) {
 	}
 
 	queryResult = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstateHistory_QueryByRealEstateId"),
+		[]byte("RealEstateHistory_GetByRealEstateId"),
 		[]byte("3"),
 	})
 	queryResultInModel = []models.RealEstateHistoryModel{}
@@ -303,7 +303,7 @@ func Test_BuyRealEstate(t *testing.T) {
 
 	//==========[user 3 should have 2 real estate]==========//
 	queryResult = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryByOwner"),
+		[]byte("RealEstate_GetByOwner"),
 		[]byte("3"), // owner id
 	})
 	queryResultInModelb = []models.RealEstateModel{}
@@ -351,7 +351,7 @@ func Test_BuyRealEstate(t *testing.T) {
 
 	//==========[user 2 should have no real estate]==========//
 	queryResult = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryByOwner"),
+		[]byte("RealEstate_GetByOwner"),
 		[]byte("2"), // owner id
 	})
 	queryResultInModelb = []models.RealEstateModel{}
@@ -366,7 +366,7 @@ func Test_BuyRealEstate(t *testing.T) {
 
 	//==========[user 3 should have 2 real estates]==========//
 	queryResult = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryByOwner"),
+		[]byte("RealEstate_GetByOwner"),
 		[]byte("3"), // owner id
 	})
 	queryResultInModelb = []models.RealEstateModel{}
@@ -432,7 +432,7 @@ func Test_OwnerSetRealEstateToSell(t *testing.T) {
 
 	//==========[real estate with id 3 should have the true value of the IsOpenToSell field]==========//
 	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryById"),
+		[]byte("RealEstate_GetById"),
 		[]byte("3"), // real estate id
 	})
 	queryResult := models.RealEstateModel{}
@@ -455,7 +455,7 @@ func Test_OwnerSetRealEstateToSell(t *testing.T) {
 
 	//==========[real estate with id 3 should have the true value of the IsOpenToSell field]==========//
 	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_QueryById"),
+		[]byte("RealEstate_GetById"),
 		[]byte("3"), // real estate id
 	})
 	queryResult = models.RealEstateModel{}

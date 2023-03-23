@@ -148,7 +148,7 @@ func (s *RealEstateChaincode) RealEstate_RegisterNewRealEstate(APIstub shim.Chai
 	return shim.Success(bytesRealEstate)
 }
 
-func (s *RealEstateChaincode) RealEstate_QueryById(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+func (s *RealEstateChaincode) RealEstate_GetById(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")
 	}
@@ -160,7 +160,7 @@ func (s *RealEstateChaincode) RealEstate_QueryById(APIstub shim.ChaincodeStubInt
 	return shim.Success(realEstateAsBytes)
 }
 
-func (s *RealEstateChaincode) RealEstate_QueryAll(APIstub shim.ChaincodeStubInterface) sc.Response {
+func (s *RealEstateChaincode) RealEstate_GetAll(APIstub shim.ChaincodeStubInterface) sc.Response {
 	startKey := constant.State_RealEstate + "0"
 	endKey := constant.State_RealEstate + "999"
 
@@ -194,7 +194,7 @@ func (s *RealEstateChaincode) NYOBAK(APIstub shim.ChaincodeStubInterface) sc.Res
 	return shim.Success(result.ProposalBytes)
 }
 
-func (s *RealEstateChaincode) RealEstate_QueryByOwner(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+func (s *RealEstateChaincode) RealEstate_GetByOwner(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments")
 	}

@@ -31,16 +31,16 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 		return s.RealEstate_Init(APIstub)
 	case "RealEstate_Create":
 		return s.RealEstate_Create(APIstub, args)
-	case "RealEstate_QueryById":
-		return s.RealEstate_QueryById(APIstub, args)
-	case "RealEstate_QueryAll":
-		return s.RealEstate_QueryAll(APIstub)
+	case "RealEstate_GetById":
+		return s.RealEstate_GetById(APIstub, args)
+	case "RealEstate_GetAll":
+		return s.RealEstate_GetAll(APIstub)
+	case "RealEstate_GetByOwner":
+		return s.RealEstate_GetByOwner(APIstub, args)
 	case "RealEstate_CheckIfRealEstateHasAlreadyRegistered":
 		return s.RealEstate_CheckIfRealEstateHasAlreadyRegistered(APIstub, args)
 	case "RealEstate_RegisterNewRealEstate":
 		return s.RealEstate_RegisterNewRealEstate(APIstub, args)
-	case "RealEstate_QueryByOwner":
-		return s.RealEstate_QueryByOwner(APIstub, args)
 	case "RealEstate_ChangeRealEstateOwner":
 		return s.RealEstate_ChangeRealEstateOwner(APIstub, args)
 	case "RealEstate_ChangeRealEstateSellStatus":
@@ -51,10 +51,10 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 		return s.User_Init(APIstub)
 	case "User_CheckIfUserExist":
 		return s.User_CheckIfUserExist(APIstub, args)
-	case "User_QueryById":
-		return s.User_QueryById(APIstub, args)
-	case "User_QueryAll":
-		return s.User_QueryAll(APIstub)
+	case "User_GetById":
+		return s.User_GetById(APIstub, args)
+	case "User_GetAll":
+		return s.User_GetAll(APIstub)
 	case "User_Create":
 		return s.User_Create(APIstub, args)
 	case "NYOBAK":
@@ -63,8 +63,8 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 	// History
 	case "RealEstateHistory_Create":
 		return s.RealEstateHistory_Create(APIstub, args)
-	case "RealEstateHistory_QueryByRealEstateId":
-		return s.RealEstateHistory_QueryByRealEstateId(APIstub, args)
+	case "RealEstateHistory_GetByRealEstateId":
+		return s.RealEstateHistory_GetByRealEstateId(APIstub, args)
 	default:
 		return shim.Error("Invalid Smart Contract function name.")
 	}

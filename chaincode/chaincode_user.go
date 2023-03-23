@@ -79,7 +79,7 @@ func (s *RealEstateChaincode) User_Create(APIstub shim.ChaincodeStubInterface, a
 	return shim.Success(userAsBytes)
 }
 
-func (s *RealEstateChaincode) User_QueryById(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+func (s *RealEstateChaincode) User_GetById(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
 	if len(args) != 1 {
 		return shim.Error("Incorrect number of arguments. Expecting 1")
 	}
@@ -88,7 +88,7 @@ func (s *RealEstateChaincode) User_QueryById(APIstub shim.ChaincodeStubInterface
 	return shim.Success(realEstateAsBytes)
 }
 
-func (s *RealEstateChaincode) User_QueryAll(APIstub shim.ChaincodeStubInterface) sc.Response {
+func (s *RealEstateChaincode) User_GetAll(APIstub shim.ChaincodeStubInterface) sc.Response {
 	startKey := constant.State_User + "0"
 	endKey := constant.State_User + "999"
 
