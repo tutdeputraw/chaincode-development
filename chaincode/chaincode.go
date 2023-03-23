@@ -20,8 +20,12 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 	helpers.Logger.Infof("Args\t\t: %v", args)
 
 	switch function {
-	case "QueryAssets":
-		return s.QueryAssets(APIstub, args)
+	// Query
+	case "Query":
+		return s.Query(APIstub, args)
+	case "QueryWithPagination":
+		return s.QueryWithPagination(APIstub, args)
+
 	// Real Estate
 	case "RealEstate_Init":
 		return s.RealEstate_Init(APIstub)
