@@ -248,7 +248,7 @@ func (m *Capabilities) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Capabilities proto.InternalMessageInfo
 
-func (m *Capabilities) GetCapabilities() map[string]*Capability {
+func (m *Capabilities) GetCAHelperpabilities() map[string]*Capability {
 	if m != nil {
 		return m.Capabilities
 	}

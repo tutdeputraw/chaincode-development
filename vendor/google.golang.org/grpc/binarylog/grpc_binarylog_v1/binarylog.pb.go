@@ -212,7 +212,7 @@ func (m *GrpcLogEntry) GetTimestamp() *timestamp.Timestamp {
 	return nil
 }
 
-func (m *GrpcLogEntry) GetCallId() uint64 {
+func (m *GrpcLogEntry) GetCAHelperllId() uint64 {
 	if m != nil {
 		return m.CallId
 	}

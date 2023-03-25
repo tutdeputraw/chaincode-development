@@ -396,7 +396,7 @@ func (t *http2Client) createHeaderFields(ctx context.Context, callHdr *CallHdr) 
 	if err != nil {
 		return nil, err
 	}
-	callAuthData, err := t.getCallAuthData(ctx, aud, callHdr)
+	callAuthData, err := t.GetCAHelperllAuthData(ctx, aud, callHdr)
 	if err != nil {
 		return nil, err
 	}
@@ -515,7 +515,7 @@ func (t *http2Client) getTrAuthData(ctx context.Context, audience string) (map[s
 	return authData, nil
 }
 
-func (t *http2Client) getCallAuthData(ctx context.Context, audience string, callHdr *CallHdr) (map[string]string, error) {
+func (t *http2Client) GetCAHelperllAuthData(ctx context.Context, audience string, callHdr *CallHdr) (map[string]string, error) {
 	var callAuthData map[string]string
 	// Check if credentials.PerRPCCredentials were provided via call options.
 	// Note: if these credentials are provided both via dial options and call
