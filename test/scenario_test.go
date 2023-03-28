@@ -2,6 +2,7 @@ package test
 
 import (
 	"encoding/json"
+	"fmt"
 	"testing"
 
 	"github.com/hyperledger/fabric-chaincode-go/shimtest"
@@ -471,6 +472,69 @@ func Test_OwnerSetRealEstateToSell(t *testing.T) {
 		t.Errorf("expect!=queryResult")
 	}
 	//----------[real estate with id 3 should have the true value of the IsOpenToSell field]----------//
+}
+
+func Test_TestRealEstate_GetByOwner(t *testing.T) {
+	cc := new(cc.RealEstateChaincode)
+	stub := shimtest.NewMockStub("real_estate", cc)
+
+	//==========[example]==========//
+	//----------[example]----------//
+
+	//==========[init user]==========//
+	helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("User_Init"),
+	})
+	//----------[init user]----------//
+
+	//==========[init real estates]==========//
+	helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_Init"),
+	})
+	//----------[init real estates]----------//
+
+	//==========[user 2 should have 1 real estate]==========//
+	expect := []models.RealEstateModel{
+		{
+			RealEstateId: "3",
+			OwnerId:      "2",
+			Price:        "13000",
+			Bed:          "1",
+			Bath:         "1",
+			AcreLot:      "150",
+			FullAddress:  "cibinong",
+			Street:       "mbongso",
+			City:         "ndarjo",
+			State:        "indo",
+			ZipCode:      "61271",
+			HouseSize:    "5",
+			IsOpenToSell: "true",
+		},
+	}
+
+	queryResultAsBytes := helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_GetByOwner"),
+		[]byte("2"), // real estate id
+	})
+	queryResult := []models.RealEstateModel{}
+	json.Unmarshal(queryResultAsBytes, &queryResult)
+
+	fmt.Println("expect: ", expect)
+	fmt.Println("queryResult: ", queryResult)
+	fmt.Println("len(expect): ", len(expect))
+	fmt.Println("len(queryResult): ", len(queryResult))
+
+	if len(expect) != len(queryResult) {
+		t.Error("panjang array tidak sama")
+	}
+
+	for i, v := range expect {
+		if v != queryResult[i] {
+			t.FailNow()
+			return
+		}
+	}
+	//----------[user 2 should have 1 real estate]----------//
 }
 
 func Test_ExternalAdvisorAssessTheRealEstate(t *testing.T) {
