@@ -422,58 +422,6 @@ func Test_BuyRealEstate(t *testing.T) {
 	//----------[user 3 should have 2 real estates]----------//
 }
 
-func Test_OwnerSetRealEstateToSell(t *testing.T) {
-	cc := new(cc.RealEstateChaincode)
-	stub := shimtest.NewMockStub("real_estate", cc)
-
-	//==========[init real estates]==========//
-	//----------[init real estates]----------//
-
-	//==========[init real estates]==========//
-	queryResultAsBytes := helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_Init"),
-	})
-	//----------[init real estates]----------//
-
-	//==========[real estate with id 3 should have the true value of the IsOpenToSell field]==========//
-	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_GetById"),
-		[]byte("3"), // real estate id
-	})
-	queryResult := models.RealEstateModel{}
-	json.Unmarshal(queryResultAsBytes, &queryResult)
-
-	expect := "true"
-
-	if expect != queryResult.IsOpenToSell {
-		t.Errorf("expect!=queryResult")
-	}
-	//----------[real estate with id 3 should have the true value of the IsOpenToSell field]----------//
-
-	//==========[change the real estate isopentosell value to be true]==========//
-	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_ChangeRealEstateSellStatus"),
-		[]byte("3"),     // real estate id
-		[]byte("false"), // status
-	})
-	//----------[change the real estate isopentosell value to be true]----------//
-
-	//==========[real estate with id 3 should have the true value of the IsOpenToSell field]==========//
-	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_GetById"),
-		[]byte("3"), // real estate id
-	})
-	queryResult = models.RealEstateModel{}
-	json.Unmarshal(queryResultAsBytes, &queryResult)
-
-	expect = "false"
-
-	if expect != queryResult.IsOpenToSell {
-		t.Errorf("expect!=queryResult")
-	}
-	//----------[real estate with id 3 should have the true value of the IsOpenToSell field]----------//
-}
-
 func Test_TestRealEstate_GetByOwner(t *testing.T) {
 	cc := new(cc.RealEstateChaincode)
 	stub := shimtest.NewMockStub("real_estate", cc)
@@ -535,6 +483,111 @@ func Test_TestRealEstate_GetByOwner(t *testing.T) {
 		}
 	}
 	//----------[user 2 should have 1 real estate]----------//
+}
+
+func Test_OwnerSetRealEstateToSell(t *testing.T) {
+	cc := new(cc.RealEstateChaincode)
+	stub := shimtest.NewMockStub("real_estate", cc)
+
+	//==========[template]==========//
+	//----------[template]----------//
+
+	//==========[init real estates]==========//
+	queryResultAsBytes := helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_Init"),
+	})
+	//----------[init real estates]----------//
+
+	//==========[real estate with id 3 should have the true value of the IsOpenToSell field]==========//
+	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_GetById"),
+		[]byte("0"), // real estate id
+	})
+	queryResult := models.RealEstateModel{}
+	json.Unmarshal(queryResultAsBytes, &queryResult)
+
+	expect := "false"
+
+	if expect != queryResult.IsOpenToSell {
+		t.Errorf("expect!=queryResult")
+	}
+	//----------[real estate with id 3 should have the true value of the IsOpenToSell field]----------//
+
+	//==========[real estate record should not be there]==========//
+	realEstateSaleRecordAsBytes := helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstateSalesRecord_GetByRealEstateIdComposite"),
+		[]byte("0"), // real estate id
+	})
+
+	realEstateSalesRecord := []models.RealEstateSalesRecordModel{}
+	json.Unmarshal(realEstateSaleRecordAsBytes, &realEstateSalesRecord)
+
+	if len(realEstateSalesRecord) != 0 {
+		t.Error("realEstateSalesRecord length is not 0")
+	}
+
+	fmt.Println("DADAD: " + string(realEstateSaleRecordAsBytes))
+	//----------[real estate record should not be there]----------//
+
+	//==========[change the real estate isopentosell value to be true]==========//
+	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_ChangeRealEstateSellStatus"),
+		[]byte("0"),    // real estate id
+		[]byte("true"), // status
+	})
+	//----------[change the real estate isopentosell value to be true]----------//
+
+	//==========[real estate record should be there]==========//
+	realEstateSaleRecordAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstateSalesRecord_GetByRealEstateIdComposite"),
+		[]byte("0"), // real estate id
+	})
+
+	realEstateSalesRecord = []models.RealEstateSalesRecordModel{}
+	json.Unmarshal(realEstateSaleRecordAsBytes, &realEstateSalesRecord)
+
+	if len(realEstateSalesRecord) == 0 {
+		t.Error("realEstateSalesRecord length shouldn't be 0")
+	}
+	fmt.Println("DADAD: " + string(realEstateSaleRecordAsBytes))
+	//----------[real estate record should be there]----------//
+
+	//==========[real estate with id 3 should have the true value of the IsOpenToSell field]==========//
+	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_GetById"),
+		[]byte("0"), // real estate id
+	})
+	queryResult = models.RealEstateModel{}
+	json.Unmarshal(queryResultAsBytes, &queryResult)
+
+	expect = "true"
+
+	if expect != queryResult.IsOpenToSell {
+		t.Errorf("expect!=queryResult")
+	}
+	//----------[real estate with id 3 should have the true value of the IsOpenToSell field]----------//
+
+	//==========[change the real estate isopentosell value to be false]==========//
+	queryResultAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_ChangeRealEstateSellStatus"),
+		[]byte("0"),     // real estate id
+		[]byte("false"), // status
+	})
+	//----------[change the real estate isopentosell value to be false]----------//
+
+	//==========[real estate record should not be there]==========//
+	realEstateSaleRecordAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstateSalesRecord_GetByRealEstateIdComposite"),
+		[]byte("0"), // real estate id
+	})
+
+	realEstateSalesRecord = []models.RealEstateSalesRecordModel{}
+	json.Unmarshal(realEstateSaleRecordAsBytes, &realEstateSalesRecord)
+
+	if len(realEstateSalesRecord) != 0 {
+		t.Error("realEstateSalesRecord length should be 0")
+	}
+	//----------[real estate record should not be there]----------//
 }
 
 func Test_ExternalAdvisorAssessTheRealEstate(t *testing.T) {

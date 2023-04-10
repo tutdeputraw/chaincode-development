@@ -1,9 +1,9 @@
 package models
 
 type UserModel struct {
-	Id          string `json:"id"`
-	Name        string `json:"name"`
-	NPWPNumber  string `json:"npwp_number"`
-	PhoneNumber string `json:"phone_number"`
-	Email       string `json:"email"`
+	Id          string `json:"userModel_id"`
+	Name        string `json:"userModel_name"`
+	NPWPNumber  string `json:"userModel_npwp_number"`
+	PhoneNumber string `json:"userModel_phone_number"`
+	Email       string `json:"userModel_email"`
 }

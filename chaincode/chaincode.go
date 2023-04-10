@@ -65,6 +65,21 @@ func (s *RealEstateChaincode) Invoke(APIstub shim.ChaincodeStubInterface) sc.Res
 		return s.RealEstateHistory_Create(APIstub, args)
 	case "RealEstateHistory_GetByRealEstateId":
 		return s.RealEstateHistory_GetByRealEstateId(APIstub, args)
+
+		// Real Estate Sales Record
+	case "RealEstateSalesRecord_Create":
+		return s.RealEstateSalesRecord_Create(APIstub, args)
+	case "RealEstateSalesRecord_Delete":
+		return s.RealEstateSalesRecord_Delete(APIstub, args)
+	case "RealEstateSalesRecord_IncrementInterestUsers":
+		return s.RealEstateSalesRecord_IncrementInterestUsers(APIstub, args)
+	case "RealEstateSalesRecord_UpdateSalesPhase":
+		return s.RealEstateSalesRecord_UpdateSalesPhase(APIstub, args)
+	case "RealEstateSalesRecord_UpdateRealEstateAssessment":
+		return s.RealEstateSalesRecord_UpdateRealEstateAssessment(APIstub, args)
+	case "RealEstateSalesRecord_GetByRealEstateIdComposite":
+		return s.RealEstateSalesRecord_GetByRealEstateIdComposite(APIstub, args)
+
 	default:
 		return shim.Error("Invalid Smart Contract function name.")
 	}

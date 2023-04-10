@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/hyperledger/fabric-chaincode-go/shim"
@@ -342,6 +343,9 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateOwner(APIstub shim.Chai
 	}
 
 	//==========[delete old key]==========//
+	resulta, _ := APIstub.GetState("realestate~owneriduser-2real-estate-3")
+	fmt.Println("PIPIR: " + string(resulta))
+
 	compositeKey := constant.Composite_GetRealEstatesByOwnerKey
 	ownerId := constant.State_User + realEstate.OwnerId
 	realEstateId := constant.State_RealEstate + realEstate.RealEstateId
@@ -350,13 +354,24 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateOwner(APIstub shim.Chai
 		compositeKey,
 		[]string{ownerId, realEstateId},
 	)
+	fmt.Println("CAKCIKCUK: ", ownerCaridIndexKey)
+	length := len(ownerCaridIndexKey)
+	fmt.Println("joss " + strconv.Itoa(length))
+	fmt.Println("JASJUS: " + strconv.FormatBool(strings.Contains(ownerCaridIndexKey, "")))
 	if err != nil {
 		return shim.Error(err.Error())
 	}
 
+	state, _ := APIstub.GetState(ownerCaridIndexKey)
+	fmt.Println("SAKJANESS: " + string(state) + "\t" + strconv.FormatBool(strings.Contains(string(state), "")))
+	if state == nil {
+		fmt.Println("GAONOSS")
+		return shim.Success([]byte(strconv.FormatBool(true)))
+	}
+
 	err = APIstub.DelState(ownerCaridIndexKey)
 	if err != nil {
-		return shim.Error("Failed to delete state:" + err.Error())
+		return shim.Error("Failed to delete state:" + string(err.Error()))
 	}
 	//----------[delete old key]----------//
 
@@ -420,6 +435,30 @@ func (s *RealEstateChaincode) RealEstate_ChangeRealEstateSellStatus(APIstub shim
 	realEstateAsBytes, _ = json.Marshal(realEstate)
 
 	APIstub.PutState(constant.State_RealEstate+realEstateId, realEstateAsBytes)
+
+	//==========[create sale history]==========//
+	if status == "true" {
+		s.RealEstateSalesRecord_Create(APIstub, []string{
+			realEstate.RealEstateId,
+			realEstate.OwnerId,
+		})
+		createCompositeRealEstateRecordByRealEstate := s.RealEstateSalesRecord_CreateComposite(APIstub, realEstate)
+		createCompositeRealEstateRecordByRealEstateIsSuccess, _ := strconv.ParseBool(string(createCompositeRealEstateRecordByRealEstate.Payload))
+		if !createCompositeRealEstateRecordByRealEstateIsSuccess {
+			return shim.Error("failed to create composite real estate sale record by real estate")
+		}
+	} else {
+		fmt.Println("MELBUO KENE")
+		// s.RealEstateSalesRecord_Delete(APIstub, []string{
+		// 	realEstate.RealEstateId + realEstate.OwnerId,
+		// })
+		deleteCompositeKey := s.RealEstateSalesRecord_DeleteComposite(APIstub, realEstate)
+		deleteCompositeKeyIsSuccess, _ := strconv.ParseBool(string(deleteCompositeKey.Payload))
+		if !deleteCompositeKeyIsSuccess {
+			return shim.Error("failed to delete the composite key real estate sales record by real estate")
+		}
+	}
+	//----------[]----------//
 
 	return shim.Success(realEstateAsBytes)
 }
