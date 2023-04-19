@@ -590,6 +590,66 @@ func Test_OwnerSetRealEstateToSell(t *testing.T) {
 	//----------[real estate record should not be there]----------//
 }
 
+func Test_ChangeRealEstateSalesPhase(t *testing.T) {
+	cc := new(cc.RealEstateChaincode)
+	stub := shimtest.NewMockStub("real_estate", cc)
+
+	//==========[template]==========//
+	//----------[template]----------//
+
+	//==========[init real estates]==========//
+	helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_Init"),
+	})
+	//----------[init real estates]----------//
+
+	//==========[init users]==========//
+	helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("User_Init"),
+	})
+	//----------[init users]----------//
+
+	//==========[change sales status for ready to sell]==========//
+	helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstate_ChangeRealEstateSellStatus"),
+		[]byte("3"),    // real estate id
+		[]byte("true"), // status
+	})
+
+	realEstateSaleRecordAsBytes := helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstateSalesRecord_GetByRealEstateIdComposite"),
+		[]byte("3"), // real estate id
+	})
+
+	realEstateSalesRecord := []models.RealEstateSalesRecordModel{}
+	json.Unmarshal(realEstateSaleRecordAsBytes, &realEstateSalesRecord)
+
+	if len(realEstateSalesRecord) != 1 {
+		t.Error("realEstateSalesRecord length shouldn't be 0")
+	}
+	//----------[change sales status for ready to sell]----------//
+
+	//==========[change sales phase to preparation]==========//
+	helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstateSalesRecord_UpdateSalesPhase"),
+		[]byte(realEstateSalesRecord[0].RealEstateId + realEstateSalesRecord[0].SellerId), // real estate sales record key
+		[]byte("preparation"), // status
+	})
+
+	realEstateSaleRecordAsBytes = helper.Test_CheckInvoke(t, stub, [][]byte{
+		[]byte("RealEstateSalesRecord_GetByRealEstateIdComposite"),
+		[]byte("3"), // real estate id
+	})
+
+	realEstateSalesRecord = []models.RealEstateSalesRecordModel{}
+	json.Unmarshal(realEstateSaleRecordAsBytes, &realEstateSalesRecord)
+
+	if realEstateSalesRecord[0].Phase != "preparation" {
+		t.Error("realEstateSalesRecord phase value should be 'preparation'")
+	}
+	//----------[change sales phase to preparation]----------//
+}
+
 func Test_ExternalAdvisorAssessTheRealEstate(t *testing.T) {
 	// soon
 }
