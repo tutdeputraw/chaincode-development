@@ -113,7 +113,7 @@ func Test_queryRealEstateByOwner(t *testing.T) {
 		[]byte("User_Init"),
 	})
 	helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_Init"),
+		[]byte("RealEstate_Init_Test"),
 	})
 
 	queryResult := helper.Test_CheckInvoke(t, stub, [][]byte{
@@ -160,7 +160,7 @@ func Test_BuyRealEstate(t *testing.T) {
 	// mock := mock.Mock_RealEstates_TransactionHistory
 
 	helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_Init"),
+		[]byte("RealEstate_Init_Test"),
 	})
 
 	// for _, v := range mock {
@@ -437,7 +437,7 @@ func Test_TestRealEstate_GetByOwner(t *testing.T) {
 
 	//==========[init real estates]==========//
 	helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_Init"),
+		[]byte("RealEstate_Init_Test"),
 	})
 	//----------[init real estates]----------//
 
@@ -494,7 +494,7 @@ func Test_OwnerSetRealEstateToSell(t *testing.T) {
 
 	//==========[init real estates]==========//
 	queryResultAsBytes := helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_Init"),
+		[]byte("RealEstate_Init_Test"),
 	})
 	//----------[init real estates]----------//
 
@@ -599,7 +599,7 @@ func Test_ChangeRealEstateSalesPhase(t *testing.T) {
 
 	//==========[init real estates]==========//
 	helper.Test_CheckInvoke(t, stub, [][]byte{
-		[]byte("RealEstate_Init"),
+		[]byte("RealEstate_Init_Test"),
 	})
 	//----------[init real estates]----------//
 

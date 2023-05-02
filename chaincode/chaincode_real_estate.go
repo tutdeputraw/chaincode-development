@@ -17,9 +17,63 @@ import (
 
 //==========[CORE]==========//
 
-func (s *RealEstateChaincode) RealEstate_Init(APIstub shim.ChaincodeStubInterface) sc.Response {
+func (s *RealEstateChaincode) RealEstate_Init_Test(APIstub shim.ChaincodeStubInterface) sc.Response {
 	// realEstates := mock.Mock_RealEstates
 	realEstates := mock.Mock_RealEstates_TransactionHistory
+
+	i := 0
+	realEstatesLen := len(realEstates)
+	for i < realEstatesLen {
+		realEstateAsBytes, _ := json.Marshal(realEstates[i])
+
+		realEstate := models.RealEstateModel{}
+		json.Unmarshal(realEstateAsBytes, &realEstate)
+
+		APIstub.PutState(constant.State_RealEstate+realEstates[i].RealEstateId, realEstateAsBytes)
+
+		// create real estate history
+		s.RealEstateHistory_Create(APIstub, []string{
+			realEstate.RealEstateId, // id
+			realEstate.OwnerId,
+			realEstate.RealEstateId,
+			time.Now().Local().String(),
+		})
+
+		// write the user to the real estate ownership history
+		createCompositeRealEstatesByOwner := s.RealEstate_CreateCompositeRealEstatesByOwner(APIstub, realEstate)
+		createCompositeRealEstatesByOwnerIsSuccess, _ := strconv.ParseBool(string(createCompositeRealEstatesByOwner.Payload))
+		if !createCompositeRealEstatesByOwnerIsSuccess {
+			return shim.Error("failed to create composite real estates by owner")
+		}
+
+		createCompositeOwnersByRealEstate := s.RealEstate_CreateCompositeOwnersByRealEstate(APIstub, realEstate)
+		createCompositeOwnersByRealEstateIsSuccess, _ := strconv.ParseBool(string(createCompositeOwnersByRealEstate.Payload))
+		if !createCompositeOwnersByRealEstateIsSuccess {
+			return shim.Error("failed to create composite owners by real estate")
+		}
+
+		// // write the user to the real estate ownership history
+		// compositeKey := constant.Composite_GetRealEstatesByOwnerKey
+		// ownerId := constant.State_User + realEstates[i].OwnerId
+		// realEstateId := constant.State_RealEstate + realEstates[i].RealEstateId
+		// ownerRealEstateIdIndexKey, err := APIstub.CreateCompositeKey(
+		// 	compositeKey,
+		// 	[]string{ownerId, realEstateId},
+		// )
+		// if err != nil {
+		// 	return shim.Error(err.Error())
+		// }
+		// value := []byte{0x00}
+		// APIstub.PutState(ownerRealEstateIdIndexKey, value)
+
+		i = i + 1
+	}
+
+	return shim.Success(nil)
+}
+
+func (s *RealEstateChaincode) RealEstate_Init(APIstub shim.ChaincodeStubInterface) sc.Response {
+	realEstates := mock.Mock_RealEstates
 
 	i := 0
 	realEstatesLen := len(realEstates)
