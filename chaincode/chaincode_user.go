@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"strconv"
 
 	"github.com/hyperledger/fabric-chaincode-go/shim"
@@ -13,7 +15,28 @@ import (
 	"tutdeputraw.com/common/models"
 )
 
+func readJsonFile() []models.UserModel {
+	fileContent, err := ioutil.ReadFile("../common/mocks-json/data-user.json")
+	if err != nil {
+		log.Fatalf("Error reading JSON file: %s", err)
+	}
+
+	var users []models.UserModel
+
+	err = json.Unmarshal(fileContent, &users)
+	if err != nil {
+		log.Fatalf("Error unmarshaling JSON: %s", err)
+	}
+
+	// for _, user := range users {
+	// 	fmt.Println("AAIU Name: %s, Id: %s, Email: %s", user.Name, user.Id, user.Email)
+	// }
+
+	return users
+}
+
 func (s *RealEstateChaincode) User_Init(APIstub shim.ChaincodeStubInterface) sc.Response {
+	readJsonFile()
 	users := mock.Mock_Users
 	// id, err := cid.GetID(APIstub)
 	// if err != nil {

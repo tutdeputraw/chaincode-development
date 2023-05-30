@@ -1,0 +1,802 @@
+[
+  {
+    "userModel_id": "0",
+    "userModel_name": "Enrique Witting",
+    "userModel_npwp_number": "3.247.1-000.000",
+    "userModel_phone_number": "+62 793-7359-3677",
+    "userModel_email": "Wilson.Stoltenberg24@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "1",
+    "userModel_name": "Deborah Hills",
+    "userModel_npwp_number": "88.705.9-000.000",
+    "userModel_phone_number": "+62 151-5216-4773",
+    "userModel_email": "Drake21@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "2",
+    "userModel_name": "Gilberto Sawayn PhD",
+    "userModel_npwp_number": "45.944.9-000.000",
+    "userModel_phone_number": "+62 047-1171-0533",
+    "userModel_email": "Hazel_Yost67@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "3",
+    "userModel_name": "Joanna Beer III",
+    "userModel_npwp_number": "7.17.9-000.000",
+    "userModel_phone_number": "+62 307-3428-0318",
+    "userModel_email": "Natalie_Russel95@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "4",
+    "userModel_name": "Karla Kassulke IV",
+    "userModel_npwp_number": "52.858.2-000.000",
+    "userModel_phone_number": "+62 611-9050-8665",
+    "userModel_email": "Kieran_Lueilwitz@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "5",
+    "userModel_name": "Gwendolyn Grant",
+    "userModel_npwp_number": "54.280.0-000.000",
+    "userModel_phone_number": "+62 247-7941-3702",
+    "userModel_email": "Shayne71@gmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "6",
+    "userModel_name": "Gordon Gutkowski",
+    "userModel_npwp_number": "75.845.4-000.000",
+    "userModel_phone_number": "+62 286-9594-8709",
+    "userModel_email": "Weldon_Koepp@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "7",
+    "userModel_name": "Bradford Upton",
+    "userModel_npwp_number": "62.750.1-000.000",
+    "userModel_phone_number": "+62 813-1211-3047",
+    "userModel_email": "Elizabeth62@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "8",
+    "userModel_name": "Alma Jerde",
+    "userModel_npwp_number": "93.39.7-000.000",
+    "userModel_phone_number": "+62 792-0681-8655",
+    "userModel_email": "Rosemarie83@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "9",
+    "userModel_name": "Laurie Gutkowski",
+    "userModel_npwp_number": "69.760.3-000.000",
+    "userModel_phone_number": "+62 866-9038-4400",
+    "userModel_email": "Xander.Lynch-Bogisich44@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "10",
+    "userModel_name": "Percy Stracke",
+    "userModel_npwp_number": "53.522.6-000.000",
+    "userModel_phone_number": "+62 078-1831-7248",
+    "userModel_email": "Cruz_Heidenreich55@yahoo.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "11",
+    "userModel_name": "Cristina Haag",
+    "userModel_npwp_number": "81.718.7-000.000",
+    "userModel_phone_number": "+62 082-8768-6762",
+    "userModel_email": "Dimitri14@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "12",
+    "userModel_name": "Chelsea Dibbert",
+    "userModel_npwp_number": "96.904.2-000.000",
+    "userModel_phone_number": "+62 327-5388-4190",
+    "userModel_email": "Betsy_Simonis60@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "13",
+    "userModel_name": "Jack Ernser",
+    "userModel_npwp_number": "41.520.7-000.000",
+    "userModel_phone_number": "+62 925-7065-2240",
+    "userModel_email": "Britney.Hammes@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "14",
+    "userModel_name": "Dr. Jordan Carter",
+    "userModel_npwp_number": "68.346.8-000.000",
+    "userModel_phone_number": "+62 371-0516-9931",
+    "userModel_email": "Nash.Reilly14@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "15",
+    "userModel_name": "Mr. Brent Spinka",
+    "userModel_npwp_number": "24.858.2-000.000",
+    "userModel_phone_number": "+62 913-1691-8860",
+    "userModel_email": "Marge.Deckow17@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "16",
+    "userModel_name": "Kerry Wilderman",
+    "userModel_npwp_number": "65.38.6-000.000",
+    "userModel_phone_number": "+62 636-6727-6069",
+    "userModel_email": "Scarlett_Kuhn62@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "17",
+    "userModel_name": "Lydia Dietrich",
+    "userModel_npwp_number": "88.706.9-000.000",
+    "userModel_phone_number": "+62 016-6747-5046",
+    "userModel_email": "Maverick_Schumm@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "18",
+    "userModel_name": "Mr. Lloyd DuBuque",
+    "userModel_npwp_number": "5.85.9-000.000",
+    "userModel_phone_number": "+62 368-3807-6600",
+    "userModel_email": "Rahul_Stanton@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "19",
+    "userModel_name": "Alan Lindgren",
+    "userModel_npwp_number": "68.236.2-000.000",
+    "userModel_phone_number": "+62 971-4077-0404",
+    "userModel_email": "Katherine36@gmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "20",
+    "userModel_name": "Delbert Vandervort",
+    "userModel_npwp_number": "75.248.4-000.000",
+    "userModel_phone_number": "+62 023-4776-7524",
+    "userModel_email": "Aimee_Wehner@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "21",
+    "userModel_name": "Arlene Quigley",
+    "userModel_npwp_number": "33.252.7-000.000",
+    "userModel_phone_number": "+62 199-0744-9029",
+    "userModel_email": "Efren.Nolan31@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "22",
+    "userModel_name": "Marie Bartoletti",
+    "userModel_npwp_number": "5.636.0-000.000",
+    "userModel_phone_number": "+62 146-2560-4513",
+    "userModel_email": "Raymundo_Effertz50@yahoo.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "23",
+    "userModel_name": "Dora Weimann",
+    "userModel_npwp_number": "3.361.0-000.000",
+    "userModel_phone_number": "+62 734-9007-9162",
+    "userModel_email": "Bridgette.Breitenberg14@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "24",
+    "userModel_name": "Dustin Wolff V",
+    "userModel_npwp_number": "45.734.9-000.000",
+    "userModel_phone_number": "+62 218-4171-5072",
+    "userModel_email": "Joanne67@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "25",
+    "userModel_name": "Joanna Conroy",
+    "userModel_npwp_number": "87.519.9-000.000",
+    "userModel_phone_number": "+62 769-4298-9011",
+    "userModel_email": "Evan_Thompson@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "26",
+    "userModel_name": "Nichole Lang",
+    "userModel_npwp_number": "4.396.6-000.000",
+    "userModel_phone_number": "+62 299-7892-5660",
+    "userModel_email": "Ronaldo55@yahoo.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "27",
+    "userModel_name": "April Daugherty",
+    "userModel_npwp_number": "51.799.4-000.000",
+    "userModel_phone_number": "+62 510-5059-9613",
+    "userModel_email": "Donavon_Robel@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "28",
+    "userModel_name": "Jenny Hane",
+    "userModel_npwp_number": "58.686.5-000.000",
+    "userModel_phone_number": "+62 642-4977-7043",
+    "userModel_email": "Sylvia.Huels@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "29",
+    "userModel_name": "Maryann Wehner",
+    "userModel_npwp_number": "60.600.4-000.000",
+    "userModel_phone_number": "+62 399-4823-0195",
+    "userModel_email": "Augusta.Crona71@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "30",
+    "userModel_name": "Jodi Aufderhar DVM",
+    "userModel_npwp_number": "81.979.3-000.000",
+    "userModel_phone_number": "+62 061-2118-2325",
+    "userModel_email": "Palma.Goodwin@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "31",
+    "userModel_name": "Ethel Medhurst II",
+    "userModel_npwp_number": "67.849.3-000.000",
+    "userModel_phone_number": "+62 735-0274-8813",
+    "userModel_email": "Magdalen94@gmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "32",
+    "userModel_name": "Rosemarie Franey-Kuvalis",
+    "userModel_npwp_number": "46.402.4-000.000",
+    "userModel_phone_number": "+62 311-1010-2675",
+    "userModel_email": "Novella_Shields@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "33",
+    "userModel_name": "Rhonda Altenwerth",
+    "userModel_npwp_number": "13.49.0-000.000",
+    "userModel_phone_number": "+62 405-5504-3661",
+    "userModel_email": "Olen11@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "34",
+    "userModel_name": "Dustin Stark",
+    "userModel_npwp_number": "13.24.7-000.000",
+    "userModel_phone_number": "+62 963-8759-1014",
+    "userModel_email": "Francesco13@gmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "35",
+    "userModel_name": "Jaime Connelly",
+    "userModel_npwp_number": "3.880.2-000.000",
+    "userModel_phone_number": "+62 994-6539-7060",
+    "userModel_email": "Deborah_Glover86@gmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "36",
+    "userModel_name": "Alberta Parker",
+    "userModel_npwp_number": "79.517.8-000.000",
+    "userModel_phone_number": "+62 178-8179-0724",
+    "userModel_email": "Gudrun.Strosin@gmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "37",
+    "userModel_name": "Mrs. Kristen Senger",
+    "userModel_npwp_number": "63.364.8-000.000",
+    "userModel_phone_number": "+62 915-7472-7330",
+    "userModel_email": "Hester57@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "38",
+    "userModel_name": "Linda Feeney",
+    "userModel_npwp_number": "82.334.2-000.000",
+    "userModel_phone_number": "+62 448-8198-1458",
+    "userModel_email": "Jayda.Hudson@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "39",
+    "userModel_name": "Candace Swift-Hermann",
+    "userModel_npwp_number": "36.161.6-000.000",
+    "userModel_phone_number": "+62 583-0053-5142",
+    "userModel_email": "Fatima23@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "40",
+    "userModel_name": "Tina Bayer III",
+    "userModel_npwp_number": "43.622.0-000.000",
+    "userModel_phone_number": "+62 209-8963-9414",
+    "userModel_email": "Catherine51@gmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "41",
+    "userModel_name": "Caroline Marquardt MD",
+    "userModel_npwp_number": "86.94.1-000.000",
+    "userModel_phone_number": "+62 702-8557-2130",
+    "userModel_email": "Daisy_Wehner19@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "42",
+    "userModel_name": "Andrea Crooks",
+    "userModel_npwp_number": "71.590.8-000.000",
+    "userModel_phone_number": "+62 981-3382-4699",
+    "userModel_email": "Dudley.Shanahan@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "43",
+    "userModel_name": "Mamie Mraz-Harvey III",
+    "userModel_npwp_number": "18.833.4-000.000",
+    "userModel_phone_number": "+62 596-8089-4229",
+    "userModel_email": "Boyd22@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "44",
+    "userModel_name": "Dorothy Vandervort I",
+    "userModel_npwp_number": "52.952.9-000.000",
+    "userModel_phone_number": "+62 745-0860-3617",
+    "userModel_email": "Maurine85@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "45",
+    "userModel_name": "Guadalupe Price DDS",
+    "userModel_npwp_number": "8.253.4-000.000",
+    "userModel_phone_number": "+62 771-4892-1961",
+    "userModel_email": "Tyra.Brakus18@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "46",
+    "userModel_name": "Martha Torp",
+    "userModel_npwp_number": "29.31.4-000.000",
+    "userModel_phone_number": "+62 329-2619-0125",
+    "userModel_email": "Orlo_Hartmann@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "47",
+    "userModel_name": "Scott Boyle",
+    "userModel_npwp_number": "97.600.6-000.000",
+    "userModel_phone_number": "+62 553-6210-9833",
+    "userModel_email": "Mafalda_Bernier9@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "48",
+    "userModel_name": "Ramon Feest",
+    "userModel_npwp_number": "9.734.7-000.000",
+    "userModel_phone_number": "+62 616-9139-3874",
+    "userModel_email": "Lisette.Ziemann@yahoo.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "49",
+    "userModel_name": "Charlie Daugherty-Kohler",
+    "userModel_npwp_number": "53.676.8-000.000",
+    "userModel_phone_number": "+62 627-0057-9039",
+    "userModel_email": "Demond88@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "50",
+    "userModel_name": "Rachel Renner",
+    "userModel_npwp_number": "89.40.6-000.000",
+    "userModel_phone_number": "+62 440-5743-7513",
+    "userModel_email": "Naomie.Ritchie@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "51",
+    "userModel_name": "Elvira Erdman",
+    "userModel_npwp_number": "19.492.5-000.000",
+    "userModel_phone_number": "+62 489-6842-6243",
+    "userModel_email": "Michel72@gmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "52",
+    "userModel_name": "Lorena Aufderhar",
+    "userModel_npwp_number": "80.590.3-000.000",
+    "userModel_phone_number": "+62 459-0215-0494",
+    "userModel_email": "Judy50@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "53",
+    "userModel_name": "Dana Gusikowski",
+    "userModel_npwp_number": "77.153.1-000.000",
+    "userModel_phone_number": "+62 504-6718-3378",
+    "userModel_email": "Parker.Veum67@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "54",
+    "userModel_name": "Carroll Becker",
+    "userModel_npwp_number": "17.61.1-000.000",
+    "userModel_phone_number": "+62 422-7820-9677",
+    "userModel_email": "Brock.Marks16@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "55",
+    "userModel_name": "Calvin Fadel",
+    "userModel_npwp_number": "6.331.1-000.000",
+    "userModel_phone_number": "+62 411-7304-2298",
+    "userModel_email": "Noble.Hartmann@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "56",
+    "userModel_name": "Vanessa Greenfelder V",
+    "userModel_npwp_number": "18.843.0-000.000",
+    "userModel_phone_number": "+62 528-5052-5588",
+    "userModel_email": "Ignacio11@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "57",
+    "userModel_name": "Aaron Bartoletti DVM",
+    "userModel_npwp_number": "76.887.4-000.000",
+    "userModel_phone_number": "+62 668-0472-1376",
+    "userModel_email": "Anderson.Mohr@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "58",
+    "userModel_name": "Joy Beier",
+    "userModel_npwp_number": "44.836.7-000.000",
+    "userModel_phone_number": "+62 234-4365-8455",
+    "userModel_email": "Grayce87@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "59",
+    "userModel_name": "Joey Metz",
+    "userModel_npwp_number": "49.978.9-000.000",
+    "userModel_phone_number": "+62 844-1277-9174",
+    "userModel_email": "Piper.Volkman48@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "60",
+    "userModel_name": "Miss Bertha Paucek",
+    "userModel_npwp_number": "49.915.0-000.000",
+    "userModel_phone_number": "+62 895-1719-6373",
+    "userModel_email": "Kyler.Olson@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "61",
+    "userModel_name": "Christina Homenick",
+    "userModel_npwp_number": "14.937.4-000.000",
+    "userModel_phone_number": "+62 129-6498-9241",
+    "userModel_email": "Alfonso_Greenholt39@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "62",
+    "userModel_name": "Lorena Gorczany",
+    "userModel_npwp_number": "60.153.4-000.000",
+    "userModel_phone_number": "+62 193-2776-3974",
+    "userModel_email": "Marley_Schamberger43@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "63",
+    "userModel_name": "Laverne Maggio",
+    "userModel_npwp_number": "68.914.5-000.000",
+    "userModel_phone_number": "+62 935-1023-3774",
+    "userModel_email": "Abigale33@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "64",
+    "userModel_name": "Lena Grady",
+    "userModel_npwp_number": "8.758.0-000.000",
+    "userModel_phone_number": "+62 858-2599-8677",
+    "userModel_email": "Ansley_Hegmann@yahoo.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "65",
+    "userModel_name": "Ms. Maggie Padberg",
+    "userModel_npwp_number": "33.916.9-000.000",
+    "userModel_phone_number": "+62 276-4886-8401",
+    "userModel_email": "Kiley68@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "66",
+    "userModel_name": "Irma Padberg",
+    "userModel_npwp_number": "57.791.2-000.000",
+    "userModel_phone_number": "+62 416-8921-0781",
+    "userModel_email": "Damien60@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "67",
+    "userModel_name": "Tabitha Kozey",
+    "userModel_npwp_number": "10.261.7-000.000",
+    "userModel_phone_number": "+62 329-5365-3404",
+    "userModel_email": "Maia61@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "68",
+    "userModel_name": "Christie Ebert V",
+    "userModel_npwp_number": "64.381.6-000.000",
+    "userModel_phone_number": "+62 659-2914-9163",
+    "userModel_email": "Laurine40@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "69",
+    "userModel_name": "Roxanne Crooks",
+    "userModel_npwp_number": "77.547.0-000.000",
+    "userModel_phone_number": "+62 509-3212-8507",
+    "userModel_email": "Cecile0@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "70",
+    "userModel_name": "Francisco King",
+    "userModel_npwp_number": "81.393.3-000.000",
+    "userModel_phone_number": "+62 508-3710-5256",
+    "userModel_email": "Declan15@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "71",
+    "userModel_name": "Antonia Hodkiewicz-Goodwin DDS",
+    "userModel_npwp_number": "55.299.7-000.000",
+    "userModel_phone_number": "+62 382-1763-3332",
+    "userModel_email": "Simeon_Kozey@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "72",
+    "userModel_name": "Latoya Lindgren",
+    "userModel_npwp_number": "69.166.1-000.000",
+    "userModel_phone_number": "+62 042-4235-1167",
+    "userModel_email": "Earline99@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "73",
+    "userModel_name": "Dr. Willie Parisian",
+    "userModel_npwp_number": "63.797.7-000.000",
+    "userModel_phone_number": "+62 006-8587-4372",
+    "userModel_email": "Amie_Kirlin@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "74",
+    "userModel_name": "Pamela King IV",
+    "userModel_npwp_number": "68.951.1-000.000",
+    "userModel_phone_number": "+62 257-4959-5135",
+    "userModel_email": "Rudy.Kling76@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "75",
+    "userModel_name": "Mr. Dwight Boyer",
+    "userModel_npwp_number": "40.899.4-000.000",
+    "userModel_phone_number": "+62 795-5382-8519",
+    "userModel_email": "Armani_Renner12@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "76",
+    "userModel_name": "Lorene Spencer",
+    "userModel_npwp_number": "36.508.5-000.000",
+    "userModel_phone_number": "+62 430-8478-1764",
+    "userModel_email": "Ova_Heidenreich57@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "77",
+    "userModel_name": "Tara Boehm",
+    "userModel_npwp_number": "71.293.8-000.000",
+    "userModel_phone_number": "+62 276-0315-1359",
+    "userModel_email": "Zoe.Mueller9@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "78",
+    "userModel_name": "Irene Mills",
+    "userModel_npwp_number": "67.766.8-000.000",
+    "userModel_phone_number": "+62 215-6480-7131",
+    "userModel_email": "Zoey_Shanahan@yahoo.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "79",
+    "userModel_name": "Sarah Abernathy",
+    "userModel_npwp_number": "54.686.9-000.000",
+    "userModel_phone_number": "+62 642-5209-5499",
+    "userModel_email": "Esta.Huel65@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "80",
+    "userModel_name": "Ms. Tabitha Berge",
+    "userModel_npwp_number": "81.706.8-000.000",
+    "userModel_phone_number": "+62 158-8732-0211",
+    "userModel_email": "Walker_Streich60@yahoo.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "81",
+    "userModel_name": "Jeffery Wyman",
+    "userModel_npwp_number": "57.908.1-000.000",
+    "userModel_phone_number": "+62 397-2814-6192",
+    "userModel_email": "Dameon73@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "82",
+    "userModel_name": "Mario Hammes II",
+    "userModel_npwp_number": "39.434.1-000.000",
+    "userModel_phone_number": "+62 101-7440-1021",
+    "userModel_email": "Bridgette.Langworth@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "83",
+    "userModel_name": "Curtis Beier",
+    "userModel_npwp_number": "28.198.6-000.000",
+    "userModel_phone_number": "+62 354-7827-7869",
+    "userModel_email": "Katelynn.Kris@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "84",
+    "userModel_name": "Dr. Cameron Moore",
+    "userModel_npwp_number": "25.476.1-000.000",
+    "userModel_phone_number": "+62 649-0115-2330",
+    "userModel_email": "Lauren13@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "85",
+    "userModel_name": "Georgia Yost",
+    "userModel_npwp_number": "60.149.7-000.000",
+    "userModel_phone_number": "+62 155-7083-5366",
+    "userModel_email": "Rupert7@yahoo.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "86",
+    "userModel_name": "Philip Rice",
+    "userModel_npwp_number": "37.609.4-000.000",
+    "userModel_phone_number": "+62 304-9089-5616",
+    "userModel_email": "Eleanore_Larkin18@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "87",
+    "userModel_name": "Joann Kovacek",
+    "userModel_npwp_number": "40.35.6-000.000",
+    "userModel_phone_number": "+62 235-7644-5193",
+    "userModel_email": "Grover89@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "88",
+    "userModel_name": "Lamar Kling",
+    "userModel_npwp_number": "13.12.4-000.000",
+    "userModel_phone_number": "+62 984-1934-9190",
+    "userModel_email": "Chris.Rau@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "89",
+    "userModel_name": "Mr. Martin Kreiger",
+    "userModel_npwp_number": "90.224.4-000.000",
+    "userModel_phone_number": "+62 328-5770-0224",
+    "userModel_email": "Michelle64@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "90",
+    "userModel_name": "Luther Herzog",
+    "userModel_npwp_number": "54.127.7-000.000",
+    "userModel_phone_number": "+62 297-2874-7947",
+    "userModel_email": "Macey78@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "91",
+    "userModel_name": "Dr. Kayla Harris",
+    "userModel_npwp_number": "55.227.8-000.000",
+    "userModel_phone_number": "+62 361-2851-9235",
+    "userModel_email": "Jaylon51@gmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "92",
+    "userModel_name": "Miss Carrie MacGyver",
+    "userModel_npwp_number": "90.823.6-000.000",
+    "userModel_phone_number": "+62 921-0109-4853",
+    "userModel_email": "Lynn_Bartoletti-Auer@hotmail.com",
+    "role": "property-owner-buyer"
+  },
+  {
+    "userModel_id": "93",
+    "userModel_name": "Mr. Carroll Bergstrom-McLaughlin Jr.",
+    "userModel_npwp_number": "53.591.6-000.000",
+    "userModel_phone_number": "+62 968-2260-9947",
+    "userModel_email": "Joaquin_Oberbrunner52@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "94",
+    "userModel_name": "Abel Rath-Doyle",
+    "userModel_npwp_number": "29.101.4-000.000",
+    "userModel_phone_number": "+62 756-0016-4248",
+    "userModel_email": "Rosetta50@gmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "95",
+    "userModel_name": "Jaime Konopelski",
+    "userModel_npwp_number": "2.150.0-000.000",
+    "userModel_phone_number": "+62 983-1460-0266",
+    "userModel_email": "Marcelle.Harber@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "96",
+    "userModel_name": "Norma Schaden",
+    "userModel_npwp_number": "46.387.8-000.000",
+    "userModel_phone_number": "+62 031-4770-9154",
+    "userModel_email": "Sigrid_Borer@hotmail.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "97",
+    "userModel_name": "Rudolph Gleichner",
+    "userModel_npwp_number": "72.93.3-000.000",
+    "userModel_phone_number": "+62 597-8344-1944",
+    "userModel_email": "Zella.Lynch86@yahoo.com",
+    "role": "property-advisor"
+  },
+  {
+    "userModel_id": "98",
+    "userModel_name": "Darrell Smith",
+    "userModel_npwp_number": "23.674.3-000.000",
+    "userModel_phone_number": "+62 867-3979-5143",
+    "userModel_email": "Muhammad_Larkin81@hotmail.com",
+    "role": "property-agent"
+  },
+  {
+    "userModel_id": "99",
+    "userModel_name": "Grant Anderson",
+    "userModel_npwp_number": "93.629.3-000.000",
+    "userModel_phone_number": "+62 343-3134-3745",
+    "userModel_email": "Brandyn.Predovic19@gmail.com",
+    "role": "property-advisor"
+  }
+]
